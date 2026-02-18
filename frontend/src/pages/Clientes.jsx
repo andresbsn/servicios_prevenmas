@@ -170,14 +170,14 @@ const Clientes = () => {
           <tbody>
             {clients.map((client) => (
               <tr key={client.id}>
-                <td>
+                <td data-label="Cliente">
                   <Link to={`/clientes/${client.id}`}>{client.razon_social}</Link>
                 </td>
-                <td>{client.cuit}</td>
-                <td>
+                <td data-label="CUIT">{client.cuit}</td>
+                <td data-label="Estado">
                   <span className="badge">{client.estado}</span>
                 </td>
-                <td>
+                <td data-label="Acciones">
                   <button className="secondary" onClick={() => startEdit(client)}>
                     Editar
                   </button>
@@ -328,11 +328,11 @@ const Clientes = () => {
                 <tbody>
                   {services.map((row) => (
                     <tr key={row.id}>
-                      <td>{row.servicio_descripcion}</td>
-                      <td>{formatDate(row.fecha_servicio)}</td>
-                      <td>{formatDate(row.proximo_vencimiento)}</td>
-                      <td>{row.importe}</td>
-                      <td>
+                      <td data-label="Servicio">{row.servicio_descripcion}</td>
+                      <td data-label="Fecha">{formatDate(row.fecha_servicio)}</td>
+                      <td data-label="Próximo vencimiento">{formatDate(row.proximo_vencimiento)}</td>
+                      <td data-label="Importe">{row.importe}</td>
+                      <td data-label="Acciones">
                         <button className="secondary" onClick={() => startEditService(row)}>
                           Editar
                         </button>

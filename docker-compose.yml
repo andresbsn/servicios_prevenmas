@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_35702
+      POSTGRES_DB: seguridad_prevenmas
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./backend/db/migrations/001_init.sql:/docker-entrypoint-initdb.d/01_init.sql:ro
+      - ./backend/db/seed/001_admin.sql:/docker-entrypoint-initdb.d/02_admin.sql:ro
+      - ./backend/db/seed/002_sample_data.sql:/docker-entrypoint-initdb.d/03_sample.sql:ro
+
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env.docker
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: /api
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  db-data:

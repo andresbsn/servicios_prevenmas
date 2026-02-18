@@ -86,13 +86,13 @@ const Catalogo = () => {
           <tbody>
             {items.map((item) => (
               <tr key={item.id}>
-                <td>{item.codigo}</td>
-                <td>{item.descripcion}</td>
-                <td>{item.importe_sugerido || "-"}</td>
-                <td>
+                <td data-label="Código">{item.codigo}</td>
+                <td data-label="Descripción">{item.descripcion}</td>
+                <td data-label="Importe">{item.importe_sugerido || "-"}</td>
+                <td data-label="Estado">
                   <span className="badge">{item.estado}</span>
                 </td>
-                <td>
+                <td data-label="Acciones">
                   <button className="secondary" onClick={() => startEdit(item)}>
                     Editar
                   </button>

@@ -118,12 +118,12 @@ const Vencimientos = () => {
           <tbody>
             {rows.map((row) => (
               <tr key={row.id}>
-                <td>{row.razon_social}</td>
-                <td>{row.servicio_descripcion}</td>
-                <td>{row.fecha_servicio}</td>
-                <td>{row.proximo_vencimiento}</td>
-                <td>{row.importe}</td>
-                <td>
+                <td data-label="Cliente">{row.razon_social}</td>
+                <td data-label="Servicio">{row.servicio_descripcion}</td>
+                <td data-label="Fecha servicio">{row.fecha_servicio}</td>
+                <td data-label="Próximo vencimiento">{row.proximo_vencimiento}</td>
+                <td data-label="Importe">{row.importe}</td>
+                <td data-label="Acciones">
                   <button className="secondary" onClick={() => startEdit(row)}>
                     Editar
                   </button>

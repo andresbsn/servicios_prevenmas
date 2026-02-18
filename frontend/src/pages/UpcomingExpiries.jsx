@@ -84,9 +84,9 @@ const UpcomingExpiries = () => {
               <tbody>
                 {group.items.map((row) => (
                   <tr key={row.id}>
-                    <td>{row.servicio_descripcion}</td>
-                    <td>{formatDate(row.proximo_vencimiento)}</td>
-                    <td>{row.importe || "-"}</td>
+                    <td data-label="Servicio">{row.servicio_descripcion}</td>
+                    <td data-label="Próximo vencimiento">{formatDate(row.proximo_vencimiento)}</td>
+                    <td data-label="Importe">{row.importe || "-"}</td>
                   </tr>
                 ))}
               </tbody>

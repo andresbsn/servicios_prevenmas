@@ -115,11 +115,11 @@ const Reportes = () => {
           <tbody>
             {rows.map((row) => (
               <tr key={row.id}>
-                <td>{row.razon_social}</td>
-                <td>{row.descripcion}</td>
-                <td>{row.importe}</td>
-                <td>{formatDate(row.fecha_emision)}</td>
-                <td>{formatDate(row.fecha_cancelacion)}</td>
+                <td data-label="Cliente">{row.razon_social}</td>
+                <td data-label="Descripción">{row.descripcion}</td>
+                <td data-label="Importe">{row.importe}</td>
+                <td data-label="Emisión">{formatDate(row.fecha_emision)}</td>
+                <td data-label="Cobro">{formatDate(row.fecha_cancelacion)}</td>
               </tr>
             ))}
           </tbody>

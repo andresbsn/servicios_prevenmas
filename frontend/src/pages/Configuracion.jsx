@@ -52,10 +52,10 @@ const Configuracion = () => {
           <tbody>
             {logs.map((row) => (
               <tr key={row.id}>
-                <td>{formatDate(row.run_at)}</td>
-                <td>{row.expiries_count}</td>
-                <td>{row.status}</td>
-                <td>{row.error || "-"}</td>
+                <td data-label="Fecha">{formatDate(row.run_at)}</td>
+                <td data-label="Cantidad">{row.expiries_count}</td>
+                <td data-label="Estado">{row.status}</td>
+                <td data-label="Error">{row.error || "-"}</td>
               </tr>
             ))}
           </tbody>
