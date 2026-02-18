@@ -19,6 +19,8 @@ services:
       - ./backend/.env.docker
     depends_on:
       - db
+    ports:
+      - "3012:4000"
 
   frontend:
     build:
@@ -28,7 +30,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "80:80"
+      - "8092:80"
 
 volumes:
   db-data:
